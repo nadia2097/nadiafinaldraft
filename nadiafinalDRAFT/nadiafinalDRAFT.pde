@@ -15,7 +15,7 @@ void setup() {
   size(1000, 800);
   img = loadImage("p1i.png");
   video = new Movie(this, "titlemp4.mp4");
-  video.play();
+  //video.play();
   for (int i = 0; i < starList.length; i ++ ) {
     starList[i] = new Star(color(i*30 % width, 255, 255, 255), i*30 + 10, 100, random(1, 2), random(1, 2));
   }
@@ -130,7 +130,10 @@ void keyPressed() {
     mode = 1;
   } else if (keyCode == DOWN) {
     mode = 2;
-  } else if (keyCode == RIGHT) {
+  } else if (keyCode == RIGHT || keyCode == ' ') {
+    background(29, 35, 47);
+    video.play();
+    video.jump(0.0);
     mode = 3;
   } else if (key == '1') {
     mode = 4;
